@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-data-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@squoosh/cli": "^0.7.2",
+    "date-fns": "^2.21.3",
+    "exifr": "^7.0.0",
+    "globby": "^13.1.2",
+    "prettier": "^2.3.0"
+  },
+  "scripts": {
+    "avif-white": "npx @squoosh/cli --avif '{\"cqLevel\":18,\"cqAlphaLevel\":-1,\"subsample\":1,\"tileColsLog2\":0,\"tileRowsLog2\":0,\"speed\":6,\"chromaDeltaQ\":false,\"sharpness\":0,\"denoiseLevel\":0,\"tune\":0}' ./images/white-blur/*.jpg --output-dir ./images-out/white-blur",
+    "avif-white:thumb": "npx @squoosh/cli  --resize '{\"enabled\":true,\"width\":466,\"height\":700,\"method\":\"lanczos3\",\"fitMethod\":\"stretch\",\"premultiply\":true,\"linearRGB\":true}' --avif '{\"cqLevel\":18,\"cqAlphaLevel\":-1,\"subsample\":1,\"tileColsLog2\":0,\"tileRowsLog2\":0,\"speed\":6,\"chromaDeltaQ\":false,\"sharpness\":0,\"denoiseLevel\":0,\"tune\":0}' ./images/white-blur/*.jpg --output-dir ./images-out/white-blur --suffix _thumb",
+    "jpg-white": "npx @squoosh/cli --mozjpeg '{\"quality\":80,\"baseline\":false,\"arithmetic\":false,\"progressive\":true,\"optimize_coding\":true,\"smoothing\":0,\"color_space\":3,\"quant_table\":3,\"trellis_multipass\":false,\"trellis_opt_zero\":false,\"trellis_opt_table\":false,\"trellis_loops\":1,\"auto_subsample\":true,\"chroma_subsample\":2,\"separate_chroma_quality\":false,\"chroma_quality\":75}' ./images/white-blur/*.jpg --output-dir ./images-out/white-blur",
+    "jpg-white:thumb": "npx @squoosh/cli --resize '{\"enabled\":true,\"width\":466,\"height\":700,\"method\":\"lanczos3\",\"fitMethod\":\"stretch\",\"premultiply\":true,\"linearRGB\":true}' --mozjpeg '{\"quality\":80,\"baseline\":false,\"arithmetic\":false,\"progressive\":true,\"optimize_coding\":true,\"smoothing\":0,\"color_space\":3,\"quant_table\":3,\"trellis_multipass\":false,\"trellis_opt_zero\":false,\"trellis_opt_table\":false,\"trellis_loops\":1,\"auto_subsample\":true,\"chroma_subsample\":2,\"separate_chroma_quality\":false,\"chroma_quality\":75}' ./images/white-blur/*.jpg --output-dir ./images-out/white-blur --suffix _thumb",
+
+    "avif-portrait": "npx @squoosh/cli --avif '{\"cqLevel\":18,\"cqAlphaLevel\":-1,\"subsample\":1,\"tileColsLog2\":0,\"tileRowsLog2\":0,\"speed\":6,\"chromaDeltaQ\":false,\"sharpness\":0,\"denoiseLevel\":0,\"tune\":0}' ./images/portrait/*.jpg --output-dir ./images-out/portrait",
+    "avif-portrait:thumb": "npx @squoosh/cli  --resize '{\"enabled\":true,\"width\":466,\"height\":700,\"method\":\"lanczos3\",\"fitMethod\":\"stretch\",\"premultiply\":true,\"linearRGB\":true}' --avif '{\"cqLevel\":18,\"cqAlphaLevel\":-1,\"subsample\":1,\"tileColsLog2\":0,\"tileRowsLog2\":0,\"speed\":6,\"chromaDeltaQ\":false,\"sharpness\":0,\"denoiseLevel\":0,\"tune\":0}' ./images/portrait/*.jpg --output-dir ./images-out/portrait --suffix _thumb",
+    "jpg-portrait": "npx @squoosh/cli --mozjpeg '{\"quality\":80,\"baseline\":false,\"arithmetic\":false,\"progressive\":true,\"optimize_coding\":true,\"smoothing\":0,\"color_space\":3,\"quant_table\":3,\"trellis_multipass\":false,\"trellis_opt_zero\":false,\"trellis_opt_table\":false,\"trellis_loops\":1,\"auto_subsample\":true,\"chroma_subsample\":2,\"separate_chroma_quality\":false,\"chroma_quality\":75}' ./images/portrait/*.jpg --output-dir ./images-out/portrait",
+    "jpg-portrait:thumb": "npx @squoosh/cli --resize '{\"enabled\":true,\"width\":466,\"height\":700,\"method\":\"lanczos3\",\"fitMethod\":\"stretch\",\"premultiply\":true,\"linearRGB\":true}' --mozjpeg '{\"quality\":80,\"baseline\":false,\"arithmetic\":false,\"progressive\":true,\"optimize_coding\":true,\"smoothing\":0,\"color_space\":3,\"quant_table\":3,\"trellis_multipass\":false,\"trellis_opt_zero\":false,\"trellis_opt_table\":false,\"trellis_loops\":1,\"auto_subsample\":true,\"chroma_subsample\":2,\"separate_chroma_quality\":false,\"chroma_quality\":75}' ./images/portrait/*.jpg --output-dir ./images-out/portrait --suffix _thumb"
+  }
+}
